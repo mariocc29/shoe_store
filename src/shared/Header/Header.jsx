@@ -6,6 +6,11 @@ import avatar from '@/assets/images/avatar.png'
 import './Header.styles.scss'
 
 export const Header = () => {
+
+  const handleGoToNotifications = () => {
+    console.log('TODO: Implement notification path')
+  }
+
   return (
     <>
       <header className='separator'>
@@ -14,7 +19,7 @@ export const Header = () => {
         </div>
         <div className='controls'>
           <div>
-            <Button>
+            <Button onClick={handleGoToNotifications}>
               <i className="icon-bell" />
             </Button>
           </div>

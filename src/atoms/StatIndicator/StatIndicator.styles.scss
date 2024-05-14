@@ -1,0 +1,35 @@
+.stat-indicator {
+  display: flex;
+  flex-wrap: nowrap;
+  column-gap: 5px;
+
+  div { display: inline; }
+
+  .indicator {
+    border-radius: 100%;
+    font-size: 11px;
+    height: 15px;
+    width: 15px;
+
+    @each $stat, $text-color in (
+      success: $color-success-3,
+      alert: $color-alert-3,
+      warning: $color-warning-3,
+    ) {
+      &.indicator-#{$stat} { background-color: $text-color; }
+    }
+  }
+
+  .percentage {
+    position: relative;
+    &::after { content: '%'; }
+  }
+
+  @each $stat, $text-color in (
+    success: $color-success-1,
+    alert: $color-alert-1,
+    warning: $color-warning-1,
+  ) {
+    &.stat-indicator-#{$stat} { color: $text-color; }
+  }
+}
