@@ -1,3 +1,4 @@
+import React from 'react';
 import './Dashboard.styles.scss'
 
 export const Dashboard = () => {

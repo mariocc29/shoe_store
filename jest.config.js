@@ -1,9 +1,7 @@
 const jestConfig = {
-  preset: 'ts-jest',
-
   transform: {
     "\\.(scss|svg)$": "jest-transform-stub",
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.jsx?$": "babel-jest",
   },
 
   setupFilesAfterEnv: [
