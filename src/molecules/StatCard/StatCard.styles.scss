@@ -1,0 +1,30 @@
+.stat-card {
+  height: 122px;
+
+  @include card_shadow();
+
+  .card {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      row-gap: 5px;
+      
+      .info-label { color: $color-neutral-2; }
+      
+      .info-data {
+        display: flex;
+        column-gap: 10%;
+        align-items: center;
+      }
+
+      .info-caption { color: $color-neutral-3; }
+    }
+
+    .icon-reference { font-size: 36px; }
+  }
+}
