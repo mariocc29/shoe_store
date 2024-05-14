@@ -4,7 +4,7 @@ export const Dashboard = () => {
   return (
     <>
       <section className="dashboard">
-        <header>Dashboard</header>
+        <header><h4>Dashboard</h4></header>
         <main>
           <article>
             <div className='stats'>
