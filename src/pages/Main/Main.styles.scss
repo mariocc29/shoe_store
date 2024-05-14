@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  & > main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 16px;
+    padding-top: 20px;
+
+    @include md { margin: 0 32px; }
+    @include lg { margin: 0 64px; }
+  }
+}

@@ -10,4 +10,13 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src")
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "./src/styles/_media_queries.scss";
+        `
+      }
+    }
+  },
 })

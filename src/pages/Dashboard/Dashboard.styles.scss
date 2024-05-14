@@ -1,0 +1,29 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    
+    article {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+
+      .stats {
+        display: flex;
+        column-gap: 10px;
+        justify-content: space-between;
+      }
+    }
+
+    article:first-child {
+      flex-grow: 1;
+    }
+  }
+
+}
