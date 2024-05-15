@@ -5,6 +5,8 @@ import { Table } from '@/molecules'
 import { Tag } from '@/atoms'
 
 export const InventoryTable = () => {
+  
+  // TODO: Verify how to pass variables by props or by redux
   const labels = ['Store', 'Model', 'Inventory', 'Status', 'Date']
   const dataset = [
     {store: 'ALDO Centre Eaton', model: 'ADERI', inventory: 10, status: <Tag tagClass='low' />, date: 'May 4th, 2024'},

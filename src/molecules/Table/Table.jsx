@@ -17,7 +17,6 @@ export const Table = ({labels, dataset, options}) => {
 
     if (options && options.hideOn) {
       Object.keys(options.hideOn).forEach((screenSize) => {
-        console.log(screenSize, window.innerWidth)
         if (window.innerWidth <= screenSizes[screenSize] && options.hideOn[screenSize].includes(cellIndex)) {
           style.display = 'none';
         }
