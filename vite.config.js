@@ -18,6 +18,7 @@ export default defineConfig({
           @import "./src/styles/_fonts.scss";
           @import "./src/styles/_media_queries.scss";
           @import "./src/styles/_mixins.scss";
+          @import "./src/styles/_grids.scss";
         `
       }
     }
