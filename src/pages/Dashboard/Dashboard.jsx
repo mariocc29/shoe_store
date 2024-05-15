@@ -1,10 +1,21 @@
 import React from 'react';
 
 import { Frame } from '@/molecules'
-import { Stats, InventoryChart, InventoryTable, RateStoreCard } from '@/organisms';
+import { Stats, InventoryChart, InventoryTable, RateCard } from '@/organisms';
 import './Dashboard.styles.scss'
 
 export const Dashboard = () => {
+
+  const datasetStores = [
+    { label: 'ALDO Centre Eaton', rate: 3800},
+    { label: 'ALDO Holyoke Mall', rate: 2500},
+  ]
+
+  const datasetModels = [
+    { label: 'ADERI', rate: 100},
+    { label: 'CAELAN', rate: 25},
+  ]
+
   return (
     <>
       <section className="dashboard">
@@ -18,12 +29,10 @@ export const Dashboard = () => {
           <article className='col-sm-12 col-md-12 col-lg-3'>
             <div className="row">
               <div className='col-sm-12 col-md-6 col-lg-12'>
-                <RateStoreCard />
+                <RateCard label='Top Rate by Stores' dataset={ datasetStores } />
               </div>
               <div className='col-sm-12 col-md-6 col-lg-12'>
-                <Frame label='Top Rate by Models' showFooter={ true }>
-                  Top Rate by Models
-                </Frame>
+                <RateCard label='Top Rate by Models' dataset={ datasetModels } />
               </div>
             </div>
           </article>

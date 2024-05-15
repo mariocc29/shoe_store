@@ -6,7 +6,7 @@ import './RateItem.styles.scss'
 
 export const RateItem = ({label, rate, totalRate}) => {
   const [rateFormatted, setRateFormatted] = useState()
-  const [percentage, setPercentage] = useState()
+  const [percentage, setPercentage] = useState(0)
 
   useEffect(() => {
     
@@ -20,7 +20,7 @@ export const RateItem = ({label, rate, totalRate}) => {
       setRateFormatted(rate)
     }
 
-    setPercentage((rate / totalRate) * 100)
+    setPercentage(((rate / totalRate) * 100).toFixed(1))
 
   }, [rate, totalRate])
   
