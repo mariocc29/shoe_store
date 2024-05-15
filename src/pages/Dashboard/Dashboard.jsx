@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Frame } from '@/molecules'
-import { Stats, InventoryChart } from '@/organisms';
+import { Stats, InventoryChart, InventoryTable } from '@/organisms';
 import './Dashboard.styles.scss'
 
 export const Dashboard = () => {
@@ -12,8 +12,8 @@ export const Dashboard = () => {
         <main className='row'>
           <article className='col-sm-12 col-md-12 col-lg-9 overview'>
             <Stats />
-            <InventoryChart/>
-            <div className='inventory-table'>Table</div>
+            <InventoryChart />
+            <InventoryTable />
           </article>
           <article className='col-sm-12 col-md-12 col-lg-3'>
             <div className="row">

@@ -1,0 +1,23 @@
+.tag {
+  display: flex;
+  justify-content: center;
+  width: 71px;
+  height: 16px;
+  border-radius: 20px;
+
+  @each $status, $text-color in (
+    standard: $color-success-1,
+    low: $color-alert-1,
+    high: $color-warning-1,
+  ) {
+    &.tag-#{$status} { color: $text-color; }
+  }
+
+  @each $status, $text-color in (
+    standard: $color-success-3,
+    low: $color-alert-3,
+    high: $color-warning-3,
+  ) {
+    &.tag-#{$status} { background-color: $text-color; }
+  }
+}

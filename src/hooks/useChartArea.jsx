@@ -13,7 +13,11 @@ export const useChartArea = (labels, dataset) => {
     Filler,
   );
 
-  const options = { responsive: true, elements: { line: { tension: 0.4 } } };
+  const options = { 
+    responsive: true, 
+    maintainAspectRatio: false,
+    elements: { line: { tension: 0.4 } } 
+  };
 
   const data = {
     labels: labels,
@@ -24,7 +28,7 @@ export const useChartArea = (labels, dataset) => {
         borderColor: 'rgb(0, 132, 244)',
         backgroundColor: (context) => {
           const ctx = context.chart.ctx;
-          const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+          const gradient = ctx.createLinearGradient(0, 0, 0, 200);
           gradient.addColorStop(0, "rgba(0, 132, 244, 0.75)");
           gradient.addColorStop(1, "rgba(213, 233, 250, 0.75)");
           return gradient;
@@ -34,7 +38,11 @@ export const useChartArea = (labels, dataset) => {
   };
 
   const draw = () => {
-    return <Line options={options} data={data} />
+    return (
+      <div style={{maxHeight:'250px'}}>
+        <Line options={options} data={data} />
+      </div>
+    )
   }
 
   return { draw }
