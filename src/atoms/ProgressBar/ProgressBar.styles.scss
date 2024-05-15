@@ -1,0 +1,25 @@
+.progress {
+  height: 10px;
+  background-color: $color-neutral-3;
+  border-radius: 5px;
+  box-shadow: 
+    inset 4px 4px 8px rgba(190, 195, 200, 0.75),
+    inset 4px 4px 12px rgba(190, 195, 200, 0.25),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.75),
+    inset -4px -4px 12px rgba(255, 255, 255, 0.25);
+
+  .progress-bar {
+    height: 8px;
+    border-radius: 5px;
+    transition: 0.4s linear;
+    transition-property: width, background-color;
+
+    @each $stat, $text-color in (
+      success: $color-success-1,
+      alert: $color-alert-1,
+      warning: $color-warning-1,
+    ) {
+      &.progress-bar-#{$stat} { background-color: $text-color; }
+    }
+  }
+}

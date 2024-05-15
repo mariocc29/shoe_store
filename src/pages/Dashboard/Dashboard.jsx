@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Frame } from '@/molecules'
-import { Stats, InventoryChart, InventoryTable } from '@/organisms';
+import { Stats, InventoryChart, InventoryTable, RateStoreCard } from '@/organisms';
 import './Dashboard.styles.scss'
 
 export const Dashboard = () => {
@@ -18,9 +18,7 @@ export const Dashboard = () => {
           <article className='col-sm-12 col-md-12 col-lg-3'>
             <div className="row">
               <div className='col-sm-12 col-md-6 col-lg-12'>
-                <Frame label='Top Rate by Stores' showFooter={ true }>
-                  Top Rate by Stores
-                </Frame>
+                <RateStoreCard />
               </div>
               <div className='col-sm-12 col-md-6 col-lg-12'>
                 <Frame label='Top Rate by Models' showFooter={ true }>
