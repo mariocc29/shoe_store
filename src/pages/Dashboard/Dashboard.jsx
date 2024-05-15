@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Frame } from '@/molecules'
 import { Stats, InventoryChart } from '@/organisms';
 import './Dashboard.styles.scss'
 
@@ -9,18 +10,22 @@ export const Dashboard = () => {
       <section className="dashboard">
         <header><h4>Dashboard</h4></header>
         <main className='row'>
-          <article className='col-sm-12 col-md-12 col-lg-10 overview'>
+          <article className='col-sm-12 col-md-12 col-lg-9 overview'>
             <Stats />
             <InventoryChart/>
             <div className='inventory-table'>Table</div>
           </article>
-          <article className='col-sm-12 col-md-12 col-lg-2'>
+          <article className='col-sm-12 col-md-12 col-lg-3'>
             <div className="row">
               <div className='col-sm-12 col-md-6 col-lg-12'>
-                Top rate by stores
+                <Frame label='Top Rate by Stores' showFooter={ true }>
+                  Top Rate by Stores
+                </Frame>
               </div>
               <div className='col-sm-12 col-md-6 col-lg-12'>
-                Top rate by models
+                <Frame label='Top Rate by Models' showFooter={ true }>
+                  Top Rate by Models
+                </Frame>
               </div>
             </div>
           </article>

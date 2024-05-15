@@ -1,7 +1,8 @@
+import React from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Filler } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-export const useChartArea = () => {
+export const useChartArea = (labels, dataset) => {
 
   ChartJS.register(
     CategoryScale,
@@ -15,11 +16,11 @@ export const useChartArea = () => {
   const options = { responsive: true, elements: { line: { tension: 0.4 } } };
 
   const data = {
-    labels: ['15:20', '15:22', '15:24', '15:26', '15:28', '15:30'],
+    labels: labels,
     datasets: [
       {
         fill: true,
-        data: [100, 40, 60, 20, 100, 75, 40],
+        data: dataset,
         borderColor: 'rgb(0, 132, 244)',
         backgroundColor: (context) => {
           const ctx = context.chart.ctx;

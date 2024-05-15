@@ -9,6 +9,7 @@
   border-radius: 5px;
   border: 0px;
   color: $color-neutral-1;
+  min-height: 42px;
   
   i { font-size:24px; }
 
@@ -29,6 +30,8 @@
       }
     }
   }
+
+  &.btn-lg { width: 80%; }
 
   @include neumorphic_shadow();
 }

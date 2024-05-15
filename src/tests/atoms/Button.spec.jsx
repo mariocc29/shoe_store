@@ -23,8 +23,17 @@ describe('Button Component', () => {
   });
 
   it('applies btn-alert to the button when hasAlert is true', () => {
-    const customClass = 'btn-alert';
+    const btnAlertClass = 'btn-alert';
     const { container } = render(<Button onClick={onClickMock} hasAlert={true}>{buttonContent}</Button>);
+    const buttonElement = container.querySelector('button');
+    
+    expect(buttonElement).toHaveClass('btn');
+    expect(buttonElement).toHaveClass(btnAlertClass);
+  });
+
+  it('applies custom-class to the button', () => {
+    const customClass = 'btn-lg';
+    const { container } = render(<Button onClick={onClickMock} btnClass={customClass}>{buttonContent}</Button>);
     const buttonElement = container.querySelector('button');
     
     expect(buttonElement).toHaveClass('btn');

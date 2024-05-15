@@ -1,0 +1,23 @@
+.frame {
+  
+  @include card_shadow();
+
+  .header {
+    display: flex;
+    align-items: center;
+
+    @include separator();
+
+    span { padding: 10px; }
+  }
+
+  .main {
+    padding: 20px;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+}
