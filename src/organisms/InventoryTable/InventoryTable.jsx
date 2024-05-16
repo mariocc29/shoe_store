@@ -13,7 +13,7 @@ export const InventoryTable = ({inventory}) => {
   const options = {
     alignment: { model: 'center', inventory: 'right', status: 'center', date: 'right' },
     hideOn: { sm: [3, 4] },
-    perPage: 10,
+    perPage: 5,
   };
 
   const getStatus = (stock) => {
