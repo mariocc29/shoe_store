@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { useChartArea } from '@/hooks';
+import { useChartArea, useInterval } from '@/hooks';
 import { Frame } from '@/molecules'
 
 export const InventoryChart = ({inventory}) => {
-  const minutesAgo = 10;
-  const [minutesAgoDate, setMinutesAgoDate] = useState(new Date())
-  
-  const [labels, setLabels] = useState()
-  const [dataset, setDataset] = useState()
-  const { draw } = useChartArea(labels, dataset)
+  const [labels, setLabels] = useState();
+  const [dataset, setDataset] = useState();
+  const draw = useChartArea(labels, dataset);
+  const minutesAgoDate = useInterval();
 
   const generateGroupLabel = (dateString) => {
     const date = new Date(dateString);
@@ -37,16 +35,6 @@ export const InventoryChart = ({inventory}) => {
     return groups
   } 
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const updatedMinutesAgoDate = new Date();
-      updatedMinutesAgoDate.setMinutes(updatedMinutesAgoDate.getMinutes() - minutesAgo);
-      setMinutesAgoDate(updatedMinutesAgoDate);
-    }, 60000);
-
-    return () => clearInterval(intervalId);
-  }, []);
-  
   useEffect(() => {
     if(inventory.length > 0){
       const groupsByTime = generateGroupByTime(inventory)

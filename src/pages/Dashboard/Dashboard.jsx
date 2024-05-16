@@ -15,7 +15,7 @@ export const Dashboard = () => {
           <article className='col-sm-12 col-md-12 col-lg-9 overview'>
             <Stats stats={stats} />
             <InventoryChart inventory={inventory} />
-            <InventoryTable />
+            <InventoryTable inventory={inventory} />
           </article>
           <article className='col-sm-12 col-md-12 col-lg-3'>
             <div className="row">

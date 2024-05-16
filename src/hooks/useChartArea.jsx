@@ -45,5 +45,5 @@ export const useChartArea = (labels, dataset) => {
     )
   }
 
-  return { draw }
+  return draw
 }
