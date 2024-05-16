@@ -21,7 +21,7 @@ export const RateCard = ({label, dataset}) => {
     <>
         <Frame label={ label } showFooter={ true }>
           <div className="rate-card">
-            {dataset.map((item, key) => (
+            {dataset.slice(0, 10).map((item, key) => (
               <div key={key}>
                 <RateItem totalRate={totalRate} {...item} />
               </div>
