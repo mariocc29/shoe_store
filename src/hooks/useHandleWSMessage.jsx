@@ -6,6 +6,7 @@ export const useHandleWSMessage = () => {
   const [stats, setStats] = useState(null);
   const [topRateStores, setTopRateStores] = useState([]);
   const [topRateModels, setTopRateModels] = useState([]);
+  const [inventory, setInventory] = useState([]);
 
   const handleMessage = ({type, data}) => {
     switch (type) {
@@ -26,7 +27,7 @@ export const useHandleWSMessage = () => {
         break;
 
       case 'inventory':
-        console.log(data)
+        setInventory([...inventory, data]);
         break;
     }
   }
@@ -78,5 +79,5 @@ export const useHandleWSMessage = () => {
     }
   }, [message])
 
-  return { stats, topRateStores, topRateModels }
+  return { stats, topRateStores, topRateModels, inventory }
 }

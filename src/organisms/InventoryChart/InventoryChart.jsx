@@ -4,18 +4,69 @@ import PropTypes from 'prop-types'
 import { useChartArea } from '@/hooks';
 import { Frame } from '@/molecules'
 
-export const InventoryChart = () => {
-  
-  // TODO: Verify how to pass variables by props or by redux
+export const InventoryChart = ({inventory}) => {
+  const minutesAgo = 10;
+  const [minutesAgoDate, setMinutesAgoDate] = useState(new Date())
   
   const [labels, setLabels] = useState()
   const [dataset, setDataset] = useState()
   const { draw } = useChartArea(labels, dataset)
 
+  const generateGroupLabel = (dateString) => {
+    const date = new Date(dateString);
+    const hour = date.getHours();
+    const minute = String(date.getMinutes()).padStart(2, '0');
+
+    return `${hour}:${minute}`;
+  }
+
+  const generateGroupByTime = (inventory) => {
+    const groups = {}
+      
+    inventory.filter(item => new Date(item.created_at) > minutesAgoDate)
+      .forEach(item => {
+        const key = generateGroupLabel(item.created_at);
+        
+        if(!(key in groups)){
+          groups[key] = [];
+        }
+
+        groups[key].push({store: item.store_id, model: item.model_id, stock: item.stock});
+      })
+    
+    return groups
+  } 
+
   useEffect(() => {
-    setLabels(['15:20', '15:22', '15:24', '15:26', '15:28', '15:30'])
-    setDataset([100, 40, 60, 20, 90, 75])
+    const intervalId = setInterval(() => {
+      const updatedMinutesAgoDate = new Date();
+      updatedMinutesAgoDate.setMinutes(updatedMinutesAgoDate.getMinutes() - minutesAgo);
+      setMinutesAgoDate(updatedMinutesAgoDate);
+    }, 60000);
+
+    return () => clearInterval(intervalId);
   }, []);
+  
+  useEffect(() => {
+    if(inventory.length > 0){
+      const groupsByTime = generateGroupByTime(inventory)
+      const groups = {}
+      
+      Object.keys(groupsByTime).forEach((groupKey) => {
+        const latestRecords = groupsByTime[groupKey].reduce((acc, curr) => {
+          const key = `${curr.store}-${curr.model}`;
+          acc[key] = curr.stock;
+          return acc;
+        }, {})
+        
+        const totalStock = Object.values(latestRecords).reduce((acc, curr) => acc + curr, 0)
+        groups[groupKey] = totalStock;
+      })
+
+      setLabels(Object.keys(groups))
+      setDataset(Object.values(groups))
+    }
+  }, [inventory, minutesAgoDate]);
 
   return (
     <>
@@ -27,6 +78,6 @@ export const InventoryChart = () => {
 }
 
 InventoryChart.propTypes = {
-
+  inventory: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 

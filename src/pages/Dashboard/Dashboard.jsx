@@ -5,7 +5,7 @@ import { useHandleWSMessage } from '@/hooks'
 import './Dashboard.styles.scss'
 
 export const Dashboard = () => {
-  const { stats, topRateStores, topRateModels } = useHandleWSMessage();
+  const { stats, topRateStores, topRateModels, inventory } = useHandleWSMessage();
 
   return (
     <>
@@ -14,7 +14,7 @@ export const Dashboard = () => {
         <main className='row'>
           <article className='col-sm-12 col-md-12 col-lg-9 overview'>
             <Stats stats={stats} />
-            <InventoryChart />
+            <InventoryChart inventory={inventory} />
             <InventoryTable />
           </article>
           <article className='col-sm-12 col-md-12 col-lg-3'>
