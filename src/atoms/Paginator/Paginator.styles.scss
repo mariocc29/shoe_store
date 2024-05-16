@@ -1,0 +1,38 @@
+.paginator {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  border-radius: 5px;
+  cursor: pointer;
+
+  @include neumorphic_shadow();
+
+  .page, .control, .ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    min-width: 42px;
+    border-left: 1px solid $color-neutral-3;
+  }
+
+  .page{
+    &.active {
+      background-color: $color-neutral-1;
+      color: $color-neutral-4;
+    }
+  }
+
+  .control {
+    &:first-child {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-left: 0px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}

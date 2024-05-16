@@ -12,7 +12,8 @@ export const InventoryTable = ({inventory}) => {
   const labels = ['Store', 'Model', 'Inventory', 'Status', 'Date'];
   const options = {
     alignment: { model: 'center', inventory: 'right', status: 'center', date: 'right' },
-    hideOn: { sm: [3, 4] }
+    hideOn: { sm: [3, 4] },
+    perPage: 10,
   };
 
   const getStatus = (stock) => {
